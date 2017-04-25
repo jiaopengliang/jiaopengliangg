@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入法切换</title>
+    <style>
+        body,ul,li,button{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul{
+            list-style: none;
+        }
+        button{
+            cursor: pointer;
+        }
+        #uls{
+            width: 50px;
+            margin-top:5px;
+            background:#fff;
+            border:1px solid #9a99ff;
+            display:none;
+        }
+        #uls li{
+            width:100%;
+            line-height:24px;
+            display:inline-block;
+            vertical-align:top;
+        }
+        #close{
+            border-top:1px solid #9a99ff;
+        }
+        #uls li a{
+            color:#00c;
+            padding:0 5px;
+            display:block;
+            text-decoration:none;
+        }
+        #uls li a:hover{
+            background:#d9e1f6;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <button>输入法</button>
+    <ul id="uls">
+        <li id="lis"><a href="#">手写</a></li>
+        <li><a href="#">拼音</a></li>
+        <li id="close"><a href="#">关闭</a></li>
+    </ul>
+</div>
+<script>
+    window.onload=function(){
+        var Obtn=document.getElementsByTagName('button')[0],
+            uls=document.getElementById('uls'),
+            close=document.getElementById('close'),
+            lis=document.getElementById('lis'),
+            style=uls.style;
+        //点击but  判断元素是否隐藏,
+        Obtn.onclick=function(){
+            style.display=style.display=='block'?'none':'block'
+        };
+        //点击关闭,关闭ul
+        close.onclick=function(){
+            style.display='none';
+        };
+        //点击li
+        lis.onclick=function(){
+            Obtn.innerHTML=lis.textContent;
+            style.display='none';
+        }
+    }
+</script>
+</body>
+</html>
