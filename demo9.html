@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select name="" id="sel">
+		<option value="">请选择</option>
+		<option value="#f00">红色</option>
+		<option value="#000">黑色</option>
+		<option value="#ccc">灰色</option>
+	</select>
+	<script>
+		var sel=document.getElementById("sel");
+		  sel.onchange=function(){
+		  	var bgc=this.value;
+		  	if(bgc==""){
+		  		document.body.style.background="#fff";
+		  	}
+		  	else{
+		  		document.body.style.background= bgc;
+		  	}
+		  }
+	</script>
+</body>
+</html>

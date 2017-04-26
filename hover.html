@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标滑过盒子显示</title>
+    <style>
+        #box{
+            width: 150px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+            left: -150px;
+            top:30px;
+        }
+        #box span{
+            width: 20px;
+            height: 70px;
+            line-height: 20px;
+            position: absolute;
+            background-color: red;
+            top:70px;
+            right: -20px;
+        }
+        ul li{
+            list-style: none;
+            margin-top: 2px;
+            line-height: 33px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <span>分享到</span>
+    <ul>
+        <li>微博</li>
+        <li>微信</li>
+        <li>QQ</li>
+        <li>新浪</li>
+        <li>快手</li>
+    </ul>
+</div>
+<script>
+    var timer=null;
+    var box=document.getElementById("box");
+    box.onmouseover=function(){
+        start(0,10);
+    }
+    box.onmouseout=function(){
+        start(-150,-10);
+    }
+    function start(iTarget,speed){
+        clearInterval(timer);
+        timer=setInterval(function(){
+            if(box.offsetLeft==iTarget){
+                clearInterval(timer);
+            }
+            else{
+                box.style.left=box.offsetLeft+speed+"px";
+            }
+        },30);
+    }
+
+</script>
+
+</body>
+</html>
